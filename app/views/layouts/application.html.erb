@@ -10,6 +10,11 @@
 <body>
 
 <%= render 'layouts/header' %>
+<div class="notice"><%= notice %></div>
+<div class="alert"><%= alert %></div>
+ <% if user_signed_in? && !current_user.current_cart.nil? %>
+    <%= link_to "Cart", cart_path(current_user.current_cart) %>
+  <% end %>
 <%= yield %>
 
 </body>
